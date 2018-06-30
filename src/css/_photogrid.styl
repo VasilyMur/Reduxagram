@@ -1,0 +1,77 @@
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 2rem;
+}
+
+.grid-figure {
+    border: 1px solid #EDEEED;
+    background: white;
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.03);
+    .grid-photo-wrap {
+        height: 280px;
+        a {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    figcaption {
+        padding: 0 20px 20px;
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+
+            button, .button {
+                background: none;
+                border: 2px solid lighten(grey, 90%);
+                padding: 5px;
+                font-size: 1.5rem;
+                color: #125688;
+                flex-basis: 48%;
+                text-align: center;
+                text-decoration: none;
+            }
+            .speech-bubble {
+                width: 1.5rem;
+                height: 1.2rem;
+                background: #125688;
+                border-radius: 50%;
+                display: inline-block;
+                position: relative;
+                &:after {
+                        content ''
+                        width: 0;
+                        height: 0;
+                        display: inline-block;
+                        border-color: transparent #125688 transparent transparent;
+                        border-style: solid;
+                        border-width: 0 1.25rem 1.25rem 0;
+                        top: 30%;
+                        left: 0;
+                        position: absolute;
+                }
+            }
+        }
+    }
+}
+
+
+.single-photo {
+    @extend .grid-figure
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 25%;
+    .grid-figure {
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+        margin: 0 2rem 0 0;
+    }
+    .grid-photo-wrap {
+    height: auto;
+    }
+}
